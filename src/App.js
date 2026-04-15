@@ -16,7 +16,7 @@ function App() {
     }, 1500);
   }, []);
 
-  // Add Student (custom name to avoid plagiarism)
+  // Add Student 
   const registerLearner = (newStudent) => {
     if (newStudent.age < 18) {
       alert("Student must be 18+");
@@ -26,16 +26,24 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="app-container">
       <h1>🎓 CodeCraze Student Panel</h1>
-
-      <button onClick={() => setClickCount(clickCount + 1)}>
-        Clicked {clickCount} times
-      </button>
+      <p className="subtitle">Manage your student enrollments with ease.</p>
 
       <StudentForm onAdd={registerLearner} />
 
-      {loading ? <p>Loading data...</p> : null}
+      {loading ? (
+        <div className="loader-container">
+          <div className="spinner"></div>
+          <p>Loading data...</p>
+        </div>
+      ) : null}
+
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+        <button className="btn btn-secondary" onClick={() => setClickCount(clickCount + 1)}>
+          Clicked {clickCount} times
+        </button>
+      </div>
 
       <StudentList learners={learners} />
     </div>

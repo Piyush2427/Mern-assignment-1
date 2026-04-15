@@ -5,19 +5,25 @@ function StudentList({ learners }) {
 
   return (
     <div>
-      <h2>📋 Student Records</h2>
+      <div className="student-list-header">
+        <h2>📋 Student Records</h2>
+      </div>
 
       {filtered.length === 0 ? (
-        <p>No eligible students</p>
+        <div className="empty-state">
+          <h3>No eligible students found</h3>
+          <p>Please register a student who is 18 or older.</p>
+        </div>
       ) : (
-        filtered.map((student, index) => (
-          <div key={index}>
-            <p>Name: {student.name}</p>
-            <p>Age: {student.age}</p>
-            <p>Course: {student.course}</p>
-            <hr />
-          </div>
-        ))
+        <div className="card-grid">
+          {filtered.map((student, index) => (
+            <div className="card student-card" key={index}>
+              <h3 className="student-name">{student.name}</h3>
+              <p className="student-detail"><strong>Age:</strong> {student.age}</p>
+              <p className="student-detail"><strong>Course:</strong> {student.course}</p>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

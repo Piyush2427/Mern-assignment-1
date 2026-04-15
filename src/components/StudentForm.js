@@ -31,33 +31,42 @@ function StudentForm({ onAdd }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        placeholder="Enter Name"
-        value={studentData.name}
-        onChange={handleChange}
-      />
+    <div className="card form-card">
+      <form onSubmit={handleSubmit}>
+        <div className="input-group">
+          <input
+            className="input-field"
+            type="text"
+            name="name"
+            placeholder="Enter Student Name"
+            value={studentData.name}
+            onChange={handleChange}
+          />
 
-      <input
-        type="number"
-        name="age"
-        placeholder="Enter Age"
-        value={studentData.age}
-        onChange={handleChange}
-      />
+          <input
+            className="input-field"
+            type="number"
+            name="age"
+            placeholder="Enter Student Age"
+            value={studentData.age}
+            onChange={handleChange}
+          />
 
-      <input
-        type="text"
-        name="course"
-        placeholder="Enter Course"
-        value={studentData.course}
-        onChange={handleChange}
-      />
+          <input
+            className="input-field"
+            type="text"
+            name="course"
+            placeholder="Enter Course"
+            value={studentData.course}
+            onChange={handleChange}
+          />
+        </div>
 
-      <button type="submit">Register Student</button>
-    </form>
+        <button className="btn btn-primary" type="submit" style={{ width: '100%' }}>
+          Register Student
+        </button>
+      </form>
+    </div>
   );
 }
 
